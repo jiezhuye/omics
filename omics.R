@@ -132,13 +132,13 @@ rfcv1<-function (trainx, trainy, cv.fold = 5, scale = "log", step = 0.5,
 target=as.character(argv[1])
 ind=as.character(argv[2])
 out=as.character(argv[3])
-tarf=read.csv(paste("/hwfssz1/ST_META/CD/jiezhuye/software/data/",target,sep=""),head=T,row.names=1)
+tarf=read.csv(paste("/path/to/omics_input1/location/",target,sep=""),head=T,row.names=1)
 rownames(tarf)=gsub("\"","",rownames(tarf))
 indfs=unlist(strsplit(ind,","))			
 predx=c()
 tic=1
 for(k in c( 1:length(indfs))){
-	predf=read.csv(paste("/hwfssz1/ST_META/CD/jiezhuye/software/data/",indfs[k],sep=""),head=T,row.names=1)
+	predf=read.csv(paste("/path/to/omics_input2/location",indfs[k],sep=""),head=T,row.names=1)
 	rownames(predf)=gsub("\"","",rownames(predf))
 	if(tic>1){
 		nm=intersect(rownames(predx),rownames(predf))
